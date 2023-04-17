@@ -1,0 +1,3 @@
+> > npx create-react-app client > > Creates a new React project To add
+Bootstrap: (For Styling) get the BootstrapCDN link and paste it in
+/public/index.html (Styling gets applied automatically)
