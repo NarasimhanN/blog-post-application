@@ -7,7 +7,7 @@ export default (props) => {
   const onSubmit = async (event) => {
     event.preventDefault();
     const res = await axios.post(
-      `http://blog-post-app/posts/${props.postId}/comments`,
+      `http://blog-post-app.com/posts/${props.postId}/comments`,
       { content }
     );
     console.log("\n RESPONSE after cerating Comment : ", res.data);

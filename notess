@@ -34,3 +34,25 @@ b) Moderation Service : To parse the comment to find illegal keyword.
 The output of Moderation service is then send to Event-bus and the event bus broadcasts it. This is recieved by the Query Service which updates the status and renders respectively.
 
 Note : If the Query Service is done, still Posts / Comments can be created, but wont be displyed. Once its online, it fetches all the events it missed from event-bus.
+
+
+--------------------
+To run on Ubuntu :
+
+>>minikube start
+
+>>cd /infra/k8s
+
+>>kubectl apply -f .
+
+Everytime new minikube cluster is formed - To use Ingress
+>>minikube addons enable ingress
+
+---------------------
+Pre req :
+
+For Ingress to work:
+    >> minikube ip
+    Use the IP address generated here and add it to /etc/hosts with the domain address
+    Example:
+    192.168.0.1 blog-post-app.com

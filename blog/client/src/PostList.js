@@ -41,7 +41,7 @@ import CommentList from "./CommentList";
 export default () => {
   const [posts, setPosts] = useState({}); //Array of Objects
   const fetchPosts = async () => {
-    const res = await axios.get("http://blog-post-app/posts");
+    const res = await axios.get("http://blog-post-app.com/posts");
     setPosts(res.data);
   };
 

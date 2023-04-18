@@ -6,7 +6,7 @@ export default () => {
 
   const onSubmit = async (event) => {
     event.preventDefault(); // Prevent default submission by browser
-    await axios.post("http://blog-post-app/posts", { title });
+    await axios.post("http://blog-post-app.com/posts/create", { title }).catch((err)=>console.log("\n\n\t ERROR IN POSTING "))
     setTitle(""); //Set Input back to null
   };
 
