@@ -1,0 +1,57 @@
+apiVersion: skaffold/v4beta3
+kind: Config
+manifests:
+  rawYaml:
+    - ../infra/k8s/*
+build:
+  local:
+    push: false #No need to push top docker hub
+  artifacts:
+    - image: narasimhannandagudi/blog_post_client_app
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: 'src/**/*.js'
+    - image: narasimhannandagudi/comments_service
+      context: comments
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: '*.js'
+    - image: narasimhannandagudi/post_service
+      context: posts
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: '*.js'
+    - image: narasimhannandagudi/event_bus_service
+      context: event-bus
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: '*.js'
+    - image: narasimhannandagudi/moderation_service
+      context: moderation
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: '*.js'
+    - image: narasimhannandagudi/query_service
+      context: query
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: '*.js'

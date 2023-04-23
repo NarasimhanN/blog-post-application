@@ -33,17 +33,23 @@ The output of Moderation service is then send to Event-bus and the event bus bro
 Note : If the Query Service is dowm, still Posts / Comments can be created, but wont be displyed. Once its online, it fetches all the events it missed from event-bus.
 
 
+
+
+---------------------
+o run on Ubuntu : (With Skaffold)
+
+>>minikube start
+
+>>skaffold dev
+ It creates all the deployment and stuff
 --------------------
-To run on Ubuntu :
+To run on Ubuntu : (Without Skaffold)
 
 >>minikube start
 
 >>cd /infra/k8s
 
 >>kubectl apply -f .
-
-Everytime new minikube cluster is formed - To use Ingress
->>minikube addons enable ingress
 
 ---------------------
 Pre req :
@@ -53,3 +59,10 @@ For Ingress to work:
     Use the IP address generated here and add it to /etc/hosts with the domain address
     Example:
     192.168.0.1 blog-post-app.com
+----------
+RUN:
+Ingress Not Working :
+>>minikube addons enable ingress
+
+Incase of Skaffold Issue wrt accessing Minikube : 
+>>skaffold config set --kube-context my-profile local-cluster true
